@@ -1,0 +1,7 @@
+6
+6 3 filled
+3 6 unfilled
+4 4 filled
+6 6 unfilled
+9 4 filled
+4 8 unfilled
