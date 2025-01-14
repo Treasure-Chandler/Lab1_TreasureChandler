@@ -4,9 +4,9 @@
 
 public class Rectangle {
     // Variables declaration
-    int numRows; // Store the number of rows
-    int numCols; // Store the number of columns
-    boolean filled; // Defines either a filled or unfilled rectangle
+    private int numRows; // Store the number of rows
+    private int numCols; // Store the number of columns
+    private boolean filled; // Defines either a filled or unfilled rectangle
 
     // Initializes variables to their default values
     public Rectangle() {
@@ -16,8 +16,10 @@ public class Rectangle {
     } // End of Rectangle constructor
 
     // Values input will be the parameters for this constructor
-    public Rectangle(int recRow, int recCol) {
-
+    public Rectangle(int recRow, int recCol, boolean fill) {
+        this.numRows = recRow;
+        this.numCols = recCol;
+        this.filled = fill;
     } // End of Rectangle constructor
 
     /**
@@ -56,18 +58,25 @@ public class Rectangle {
      * Create and return a string for console output
      * @return      The formatted string
      */
+    @Override
     public String toString() {
         // Variables declaration
         String rectangleChar = "";
 
+        /* 
+         * Configures the rows and columns into "coordinates" using nested
+         * for loops
+         */
         for (int i = 0; i < numRows; i++) {
             for (int j = 0; j < numCols; j++) {
-                if (!filled) {
-                    if (i == 1 || i == numRows) {
-
+                    // Filled logic
+                    if (filled || i == 0 || i == numRows - 1 || j == 0 || j == numCols - 1) {
+                        rectangleChar += "#";
+                    } else {
+                        rectangleChar += " ";
                     }
-                }
             }
+            rectangleChar += "\n";
         }
 
         return rectangleChar;
