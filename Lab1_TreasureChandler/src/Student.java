@@ -2,7 +2,7 @@
  * @author Treasure Chandler
  */
 
-public class Student {
+ public class Student {
     // Variables declaration
     private String name; // Student's name
     private char grade; // Student's grade
