@@ -1,8 +1,11 @@
+import java.io.PrintWriter;
+import java.lang.reflect.Array;
+
 /**
  * @author Treasure Chandler
  */
 
- public class Student {
+public class Student {
     // Variables declaration
     private String name; // Student's name
     private char grade; // Student's grade
@@ -87,4 +90,44 @@
     public void setScores(int[] s) {
         this.scores = s;
     } // End of setScores()
-}
+
+    /**
+     * Determine the average of 5 test scores for each student
+     * @param array
+     */
+    public void calculateAverage() {
+        // Avoid division by 0
+        if (scores.length == 0) {
+            return;
+        }
+
+        int sum = 0;
+        for (int num : scores) {
+            sum += num;
+        }
+
+        // Actual average calculation
+        double average = (double) sum / scores.length;
+    } // End of calculateAverage()
+
+    /**
+     * Determine each student's letter grade based on the scores
+     */
+    public void calculateGrade() {
+        if (average >= 90 && average <= 100) {
+            grade = 'A';
+        } else if (average >= 80 && average <= 89) {
+            grade = 'B';
+        } else if (average >= 70 && average <= 79) {
+            grade = 'C';
+        } else if (average >= 60 && average <= 69) {
+            grade = 'D';
+        } else {
+            grade = 'F';
+        }
+    } // End of calculateGrade()
+
+    public void generateOutput(PrintWriter outFile) {
+        
+    } // End of generateOutput()
+} // End of Student
