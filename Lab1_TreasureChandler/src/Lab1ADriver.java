@@ -41,7 +41,7 @@ public class Lab1ADriver {
                 }
             }
         } catch (FileNotFoundException e) {
-            System.out.println("File \"rectangles.txt\" not found: " + e.getMessage());
+            System.err.println("File \"rectangles.txt\" not found: " + e.getMessage());
         } // End of try-catch
 
         // Print the rectangles
