@@ -15,6 +15,7 @@ public class Lab1ADriver {
         Rectangle[] rectangles = null;
         String rectangleFile = "rectangles.txt";
 
+        // Retrieve the "rectangles.txt" file
         try (Scanner rectangleScan = new Scanner(new File(rectangleFile))) {
             // Read the total number of lines in the file
             int rectangleAmount = rectangleScan.nextInt();
@@ -41,7 +42,7 @@ public class Lab1ADriver {
             }
         } catch (FileNotFoundException e) {
             System.out.println("File \"rectangles.txt\" not found: " + e.getMessage());
-        }
+        } // End of try-catch
 
         // Print the rectangles
         if (rectangles != null) {
