@@ -3,7 +3,6 @@
  */
 
 import java.io.*;       // Mainly used for the PrintWriter class
-import java.util.*;     // Mainly used for the Scanner class
 
 public class Student {
     // Variables declaration
@@ -98,7 +97,7 @@ public class Student {
         // Avoid division by 0
         if (scores.length == 0) {
             return;
-        }
+        } else {}
 
         int sum = 0;
         for (int num : scores) {
@@ -106,7 +105,7 @@ public class Student {
         }
 
         // Actual average calculation
-        double average = (double) sum / scores.length;
+        average = (double) sum / scores.length;
     } // End of calculateAverage()
 
     /**
@@ -126,25 +125,19 @@ public class Student {
         }
     } // End of calculateGrade()
 
-    public void generateOutput(PrintWriter outFile) {
-        try {
-            Scanner sc = new Scanner(new File("students.in"));
-            outFile = new PrintWriter(new File("students.out"));
-
-            // Output file header
-            outFile.printf("\"%-10s %-10s %-10s %-10s %-10s %-10s %-10s %-10s%n\",\n" +
-                            "Student", "Test 1", "Test 2", "Test 3", "Test 4", "Test 5", "Ave", "Grade");
-
-            // Process each line in students.in
-            while (sc.hasNextLine()) {
-                String line = sc.nextLine().trim();
-
-                
-            }
-        } catch (IOException e) {
-            System.err.println("An error occured: " + e.getMessage());
+    /**
+     * Print out name, test scores, average, and 
+     * letter grade to the output file
+     * @param outFile       Output file for student data
+     * @param writeHeader   An event to trigger writing the header in the file
+     */
+    public void generateOutput(PrintWriter outFile, boolean writeHeader) {
+        // Output file header
+        if (writeHeader) {
+            outFile.printf("%-10s %-10s %-10s %-10s %-10s %-10s %-10s %-10s%n",
+                            "Student", "Test 1", "Test 2", "Test 3", "Test 4",
+                            "Test 5", "Ave", "Grade");
+            outFile.println();
         }
-
-        outFile.close();
     } // End of generateOutput()
 } // End of Student
